@@ -1,13 +1,15 @@
 
 #ifndef DYNARRAY_H
 #define DYNARRAY_H
+#define RESIZE_CONSTANT 1.5
 
-#include <stddef.h> 
-// Define the dynamic array structure
+
+#include <stddef.h>
+
 struct dynArray {
     size_t capacity; // Maximum number of elements the array can hold
     size_t ptr;      // Current number of elements in the array
-    void **data;     // Pointer to the array of void pointers (generic data)
+    void **data;     // Pointer to the array of void pointers
 };
 
 // Function prototypes

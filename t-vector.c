@@ -23,7 +23,7 @@ struct dynArray *create_Array(size_t capacity) {
 
 struct dynArray *resize_Array(struct dynArray *p_varray) {
   printf("resizing\n");
-  size_t new_capacity = p_varray->capacity * 1.5;
+  size_t new_capacity = p_varray->capacity * RESIZE_CONSTANT;
 
   struct dynArray *n_varray = create_Array(new_capacity);
   if (n_varray == NULL) {
