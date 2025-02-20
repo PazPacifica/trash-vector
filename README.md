@@ -59,5 +59,4 @@ void destroy_Array(struct dynArray *varray);
 ```
 frees variable array memory
 
----
 
