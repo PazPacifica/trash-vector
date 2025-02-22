@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct dynArray *create_Array(size_t capacity) {
-  struct dynArray *varray = malloc(sizeof(struct dynArray));
+struct dynArray_t *create_Array(size_t capacity) {
+  struct dynArray_t *varray = malloc(sizeof(struct dynArray_t));
   if (varray == NULL) {
     return NULL;
   }
@@ -21,11 +21,11 @@ struct dynArray *create_Array(size_t capacity) {
   return varray;
 }
 
-struct dynArray *resize_Array(struct dynArray *p_varray) {
+struct dynArray_t *resize_Array(struct dynArray_t *p_varray) {
   printf("resizing\n");
   size_t new_capacity = p_varray->capacity * RESIZE_CONSTANT;
 
-  struct dynArray *n_varray = create_Array(new_capacity);
+  struct dynArray_t *n_varray = create_Array(new_capacity);
   if (n_varray == NULL) {
     return NULL;
   }
@@ -38,7 +38,7 @@ struct dynArray *resize_Array(struct dynArray *p_varray) {
   return n_varray;
 }
 
-int append(struct dynArray **varray, void *element) {
+int append(struct dynArray_t **varray, void *element) {
   if ((*varray)->ptr >= (*varray)->capacity) {
     *varray = resize_Array(*varray);
     if (*varray == NULL) {
@@ -50,14 +50,14 @@ int append(struct dynArray **varray, void *element) {
   return 0;
 }
 
-void *get(struct dynArray *varray, size_t index) {
+void *get(struct dynArray_t *varray, size_t index) {
   if (index >= varray->ptr) {
     return NULL;
   }
   return varray->data[index];
 }
 
-void delete_at(struct dynArray *varray, size_t index) {
+void delete_at(struct dynArray_t *varray, size_t index) {
   if (index >= varray->ptr) {
     return;
   }
@@ -66,7 +66,7 @@ void delete_at(struct dynArray *varray, size_t index) {
   varray->ptr--;
 }
 
-void destroy_Array(struct dynArray *varray) {
+void destroy_Array(struct dynArray_t *varray) {
   if (varray != NULL) {
     if (varray->data != NULL) {
       free(varray->data);

@@ -6,7 +6,7 @@
 
 #include <stddef.h>
 
-struct dynArray {
+struct dynArray_t {
     size_t capacity; // Maximum number of elements the array can hold
     size_t ptr;      // Current number of elements in the array
     void **data;     // Pointer to the array of void pointers
@@ -14,16 +14,16 @@ struct dynArray {
 
 // Function prototypes
 
-struct dynArray *create_Array(size_t capacity);
+struct dynArray_t *create_Array(size_t capacity);
 
-struct dynArray *resize_Array(struct dynArray *p_varray);
+struct dynArray_t *resize_Array(struct dynArray_t *p_varray);
 
-int append(struct dynArray **varray, void *element);
+int append(struct dynArray_t **varray, void *element);
 
-void *get(struct dynArray *varray, size_t index);
+void *get(struct dynArray_t *varray, size_t index);
 
-void delete_at(struct dynArray *varray, size_t index);
+void delete_at(struct dynArray_t *varray, size_t index);
 
-void destroy_Array(struct dynArray *varray);
+void destroy_Array(struct dynArray_t *varray);
 
 #endif // DYNARRAY_H
