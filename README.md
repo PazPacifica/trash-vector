@@ -1,8 +1,8 @@
-# Trash Vector / Dynamic Array / Variable Array
-
 ```
 A dynamic array implementation in C
 ```
+
+# Trash Vector / Dynamic Array / Variable Array
 
 ## Assessment
 
